@@ -1,0 +1,44 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Employee Records</title>  
+     
+</head>  
+<body> 
+    <table border="2" class="table table-striped table-bordered table-sm">  
+        <thead class="thead-dark">    
+    <div class="container"> 
+    <tr>  
+        <th>Employe ID</th>  
+        <th>Employe Name</th>  
+        <th>Employe Email</th>  
+        <th>Employe Contact</th> 
+        <th>Employe Password</th> 
+        <th>Employe File</th>  
+        <th>Actions</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for employe in employes %}  
+    <tr>  
+        <td>{{ employe.eid }}</td>  
+        <td>{{ employe.ename }}</td>  
+        <td>{{ employe.eemail }}</td>  
+        <td>{{ employe.econtact }}</td>  
+        <td>{{ employe.epassword }}</td>
+        <td>{{ employe.efile }}</td>
+        <td>  
+            <a href="/edit/{{ employe.id }}"><span class="btn btn-danger btn-xs" onclick="return confirm ('Are you sure want to edit')" >Edit</span></a>  
+            <a href="/delete/{{ employe.id }}"class="btn btn-danger btn-xs" onclick="return confirm ('Are you sure want to delete')">Delete</a>  
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+<center><a href="/signup" class="btn btn-primary">Add New Record</a></center>  
+</body>  
+</html>  
+
